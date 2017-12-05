@@ -16,6 +16,8 @@ struct Film : Codable {
     let release_year : String?
     let title : String?
     let writer : String?
+    let distributor : String?
+    let fun_facts : String?
 
     enum CodingKeys: String, CodingKey {
 
@@ -28,6 +30,8 @@ struct Film : Codable {
         case release_year = "release_year"
         case title = "title"
         case writer = "writer"
+        case distributor = "distributor"
+        case fun_facts = "fun_facts"
     }
 
     init(from decoder: Decoder) throws {
@@ -41,6 +45,8 @@ struct Film : Codable {
         release_year = try values.decodeIfPresent(String.self, forKey: .release_year)
         title = try values.decodeIfPresent(String.self, forKey: .title)
         writer = try values.decodeIfPresent(String.self, forKey: .writer)
+        distributor = try values.decodeIfPresent(String.self, forKey: .distributor)
+        fun_facts = try values.decodeIfPresent(String.self, forKey: .fun_facts)
     }
 
 }
