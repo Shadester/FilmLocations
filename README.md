@@ -1,5 +1,8 @@
 # FilmLocations
 
+In a real project this would not be a good solution, it is a POC that works, but I would say that UI design would be
+more polished, test code would exist and a lot more error checking for lossed connections, bad results, etc.
+
 I looked into how to get the location database in a better format. Found on the 
 https://data.sfgov.org/Culture-and-Recreation/Film-Locations-in-San-Francisco/yitu-d5am
 Shorter json delivered format: https://data.sfgov.org/resource/wwmu-gmzc.json
