@@ -28,6 +28,7 @@ Using layoutanchors is working pretty well, too.
 I have added a search for title, year and director instead of doing the sorting, I felt that that would be more valuable.
 
 Ideas for expansion:
+* Screen with all info and the map (like a detailed view) instead of just the map
 * Smarter search in the maps, maybe use google lookup that might be better (or both)
 
 Also the two optionals that was in the technical challenge
