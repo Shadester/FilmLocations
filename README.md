@@ -20,10 +20,10 @@ I have decided to not use xibs or storyboards, since we don't use it at my curre
 Using layoutanchors is working pretty well, too.
 
 Ideas for expansion:
-Search in the list for movie title
-Better handling of optionals in the code (too many ! right now)
-Smarter search in the maps, maybe use google lookup that might be better (or both)
+* Search in the list for movie title
+* Better handling of optionals in the code (too many ! right now)
+* Smarter search in the maps, maybe use google lookup that might be better (or both)
 
 Also the two optionals that was in the technical challenge
-Provide a way for the user to change the sorting of the list (Right now it's too many fields to possibly search on, I feel. Might just be needed to search on title and year?)
-Cache data locally using core data (it is very quick so far anyway, it seems like it is possibly updated weekly (according to the sfgov page))
+* Provide a way for the user to change the sorting of the list (Right now it's too many fields to possibly search on, I feel. Might just be needed to search on title and year?)
+* Cache data locally using core data (it is very quick so far anyway, it seems like it is possibly updated weekly (according to the sfgov page))
