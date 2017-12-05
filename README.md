@@ -8,6 +8,7 @@ Use codable with swift 4 for json parsing
 http://www.json4swift.com/results.php for generating model
 
 One tableview in a navigationcontroller
+
 Added a mapview in a uiviewcontroller to show the annotation
 
 First tried using normal search for the locations, unfortunately the formatting of the locations are very
