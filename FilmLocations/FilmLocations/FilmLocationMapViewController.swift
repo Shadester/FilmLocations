@@ -13,17 +13,15 @@ class FilmLocationMapViewController: UIViewController {
 
     var filmLocation: String?
     var filmTitle: String?
-    let region = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(37.7749, -122.4194), 10000, 10000)
+    let region = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(37.7749, -122.4194), 10000, 10000) // San Francisco coordinates and within a 20km bounding box.
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.addSubview(mapView)
 
-        let margins = view.layoutMarginsGuide
-
-        mapView.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
-        mapView.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
+        mapView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        mapView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
 
         if #available(iOS 11, *) {
             let guide = view.safeAreaLayoutGuide
@@ -54,9 +52,9 @@ class FilmLocationMapViewController: UIViewController {
             // Show annotation if search result is inside San Francisco
             if(MKMapRectContainsPoint((self?.MKMapRectForCoordinateRegion(region: (self?.region)!))!, MKMapPointForCoordinate(pointAnnotation.coordinate))) {
                 let pinAnnotationView = MKPinAnnotationView(annotation: pointAnnotation, reuseIdentifier: nil)
-                self!.mapView.centerCoordinate = pointAnnotation.coordinate
-                self!.mapView.region = MKCoordinateRegionMakeWithDistance(pointAnnotation.coordinate, 500, 500)
-                self!.mapView.addAnnotation(pinAnnotationView.annotation!)
+                self?.mapView.centerCoordinate = pointAnnotation.coordinate
+                self?.mapView.region = MKCoordinateRegionMakeWithDistance(pointAnnotation.coordinate, 500, 500)
+                self?.mapView.addAnnotation(pinAnnotationView.annotation!)
             } else {
                 self?.showNotFound()
                 return

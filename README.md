@@ -3,6 +3,8 @@
 In a real project this would not be a good solution, it is a POC that works, but I would say that UI design would be
 more polished, test code would exist and a lot more error checking for lossed connections, bad results, etc.
 
+The solution runs on iOS 9.3 and up. The searchbar only exists on iOS 11 due to the new smart searchcontroller.
+
 I looked into how to get the location database in a better format. Found on the 
 https://data.sfgov.org/Culture-and-Recreation/Film-Locations-in-San-Francisco/yitu-d5am
 Shorter json delivered format: https://data.sfgov.org/resource/wwmu-gmzc.json
@@ -23,9 +25,9 @@ map to show the pin better.
 I have decided to not use xibs or storyboards, since we don't use it at my current job and I'm not a huge fan.
 Using layoutanchors is working pretty well, too.
 
+I have added a search for title, year and director instead of doing the sorting, I felt that that would be more valuable.
+
 Ideas for expansion:
-* Search in the list for movie title
-* Better handling of optionals in the code (too many ! right now)
 * Smarter search in the maps, maybe use google lookup that might be better (or both)
 
 Also the two optionals that was in the technical challenge
