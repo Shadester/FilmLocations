@@ -67,7 +67,7 @@ class FilmLocationMapViewController: UIViewController {
     func showNotFound() {
         let alertController = UIAlertController(title: "Place not found", message: "Look at another location", preferredStyle: .alert)
         let OKAction = UIAlertAction(title: "OK", style: .default) { action in
-            self.navigationController?.popViewController(animated: false)
+            //
         }
         alertController.addAction(OKAction)
         self.present(alertController, animated: true)

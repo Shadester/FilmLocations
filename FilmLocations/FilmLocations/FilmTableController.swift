@@ -10,7 +10,7 @@ import UIKit
 
 class FilmTableController: UITableViewController {
 
-    var moviesArray = [Film?]() {
+    var movies = [Film?]() {
         didSet {
             self.tableView.reloadData()
         }
@@ -23,6 +23,7 @@ class FilmTableController: UITableViewController {
         case Title = 0
         case Year
         case Director
+        case Location
     }
 
     override func viewDidLoad() {
@@ -42,13 +43,13 @@ class FilmTableController: UITableViewController {
         definesPresentationContext = true
 
         // Setup the Scope Bar
-        searchController.searchBar.scopeButtonTitles = ["Title", "Year", "Director"]
+        searchController.searchBar.scopeButtonTitles = ["Title", "Year", "Director", "Location"]
         searchController.searchBar.delegate = self
         
         tableView.register(FilmTableViewCell.self, forCellReuseIdentifier: "Cell")
         FilmManager.getFilms { (films) in
             DispatchQueue.main.async {
-                self.moviesArray = films
+                self.movies = films
             }
         }
     }
@@ -64,7 +65,7 @@ class FilmTableController: UITableViewController {
         if isFiltering() {
             film = filteredMovies[indexPath.row]!
         } else {
-            film = moviesArray[indexPath.row]!
+            film = movies[indexPath.row]!
         }
         cell.displayFilmInCell(film: film)
         return cell
@@ -75,7 +76,7 @@ class FilmTableController: UITableViewController {
         if isFiltering() {
             film = filteredMovies[indexPath.row]!
         } else {
-            film = moviesArray[indexPath.row]!
+            film = movies[indexPath.row]!
         }
         let filmLocationMapViewController = FilmLocationMapViewController()
         filmLocationMapViewController.filmLocation = film.locations
@@ -87,9 +88,9 @@ class FilmTableController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering() {
             return filteredMovies.count
+        } else {
+            return movies.count
         }
-
-        return moviesArray.count
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -100,8 +101,8 @@ class FilmTableController: UITableViewController {
         return 100
     }
 
-    func filterContentForSearchText(_ searchText: String, scope: SearchOn) {
-        filteredMovies = moviesArray.filter({( film : Film?) -> Bool in
+    private func filterContentForSearchText(_ searchText: String, scope: SearchOn) {
+        filteredMovies = movies.filter({( film : Film?) -> Bool in
             if searchBarIsEmpty() {
                 return true
             }
@@ -113,6 +114,8 @@ class FilmTableController: UITableViewController {
                     return year.lowercased().contains(searchText.lowercased())
                 } else if let director = film.director, scope == SearchOn.Director {
                     return director.lowercased().contains(searchText.lowercased())
+                } else if let location = film.locations, scope == SearchOn.Location {
+                    return location.lowercased().contains(searchText.lowercased())
                 }
             }
 
@@ -122,13 +125,12 @@ class FilmTableController: UITableViewController {
         tableView.reloadData()
     }
 
-    func searchBarIsEmpty() -> Bool {
+    private func searchBarIsEmpty() -> Bool {
         return searchController.searchBar.text?.isEmpty ?? true
     }
 
-    func isFiltering() -> Bool {
-        let searchBarScopeIsFiltering = searchController.searchBar.selectedScopeButtonIndex != 0
-        return searchController.isActive && (!searchBarIsEmpty() || searchBarScopeIsFiltering)
+    private func isFiltering() -> Bool {
+        return searchController.isActive && (!searchBarIsEmpty())
     }
 }
 
