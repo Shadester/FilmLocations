@@ -36,7 +36,7 @@ class FilmLocationMapViewController: UIViewController {
         self.title = filmTitle
 
         let localSearchRequest = MKLocalSearchRequest()
-        localSearchRequest.naturalLanguageQuery = filmLocation // This is to have a bit better search, since the addresses in the database is weirdly formatted.
+        localSearchRequest.naturalLanguageQuery = filmLocation // This is to have a bit better search, since the addresses in the database is weirdly formatted. There is much improvement to be done in how it searches.
         localSearchRequest.region = region
         let localSearch = MKLocalSearch(request: localSearchRequest)
 

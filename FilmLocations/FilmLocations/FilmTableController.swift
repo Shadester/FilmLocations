@@ -28,7 +28,6 @@ class FilmTableController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Film locations in San Francisco"
 
         // Setup the Search Controller
         searchController.searchResultsUpdater = self
@@ -52,6 +51,10 @@ class FilmTableController: UITableViewController {
                 self.movies = films
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.title = "Film locations in San Francisco"
     }
 
     override func didReceiveMemoryWarning() {
@@ -81,6 +84,7 @@ class FilmTableController: UITableViewController {
         let filmLocationMapViewController = FilmLocationMapViewController()
         filmLocationMapViewController.filmLocation = film.locations
         filmLocationMapViewController.filmTitle = film.title
+        self.title = "Back"
         navigationController?.pushViewController(filmLocationMapViewController, animated: false)
         tableView.deselectRow(at: indexPath, animated: true)
     }
