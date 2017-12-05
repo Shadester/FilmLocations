@@ -34,3 +34,7 @@ Ideas for expansion:
 Also the two optionals that was in the technical challenge
 * Provide a way for the user to change the sorting of the list (Right now it's too many fields to possibly search on, I feel. Might just be needed to search on title and year?)
 * Cache data locally using core data (it is very quick so far anyway, it seems like it is possibly updated weekly (according to the sfgov page))
+
+
+/Erik Lindberg
+e.lindberg@gmail.com
