@@ -14,6 +14,7 @@
 		1729818C1FD5D39100904E05 /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1729818B1FD5D39100904E05 /* Film.swift */; };
 		1729818E1FD5D67600904E05 /* FilmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1729818D1FD5D67600904E05 /* FilmManager.swift */; };
 		172981901FD5F1B400904E05 /* FilmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1729818F1FD5F1B400904E05 /* FilmTableViewCell.swift */; };
+		172981921FD6002B00904E05 /* FilmLocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172981911FD6002B00904E05 /* FilmLocationMapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		1729818B1FD5D39100904E05 /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
 		1729818D1FD5D67600904E05 /* FilmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmManager.swift; sourceTree = "<group>"; };
 		1729818F1FD5F1B400904E05 /* FilmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmTableViewCell.swift; sourceTree = "<group>"; };
+		172981911FD6002B00904E05 /* FilmLocationMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmLocationMapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				1729817F1FD5C92700904E05 /* Assets.xcassets */,
 				172981811FD5C92700904E05 /* LaunchScreen.storyboard */,
 				172981841FD5C92700904E05 /* Info.plist */,
+				172981911FD6002B00904E05 /* FilmLocationMapViewController.swift */,
 			);
 			path = FilmLocations;
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 			files = (
 				1729818E1FD5D67600904E05 /* FilmManager.swift in Sources */,
 				1729817B1FD5C92700904E05 /* FilmTableController.swift in Sources */,
+				172981921FD6002B00904E05 /* FilmLocationMapViewController.swift in Sources */,
 				1729818C1FD5D39100904E05 /* Film.swift in Sources */,
 				172981791FD5C92700904E05 /* AppDelegate.swift in Sources */,
 				172981901FD5F1B400904E05 /* FilmTableViewCell.swift in Sources */,

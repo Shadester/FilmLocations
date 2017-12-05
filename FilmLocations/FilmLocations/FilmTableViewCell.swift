@@ -34,9 +34,13 @@ class FilmTableViewCell: UITableViewCell {
         directorLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 10).isActive = true
         directorLabel.topAnchor.constraint(equalTo: movieTitleLabel.bottomAnchor).isActive = true
 
+        addSubview(actorsLabel)
+        actorsLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 10).isActive = true
+        actorsLabel.topAnchor.constraint(equalTo: directorLabel.bottomAnchor).isActive = true
+
         addSubview(locationLabel)
         locationLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 10).isActive = true
-        locationLabel.topAnchor.constraint(equalTo: directorLabel.bottomAnchor).isActive = true
+        locationLabel.topAnchor.constraint(equalTo: actorsLabel.bottomAnchor).isActive = true
         locationLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -10).isActive = true
         locationLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
     }
@@ -45,6 +49,8 @@ class FilmTableViewCell: UITableViewCell {
         movieTitleLabel.text = film.title
         yearLabel.text = "(\(film.release_year ?? ""))"
         directorLabel.text = film.director
+        let actorsString = [film.actor_1, film.actor_2, film.actor_3].flatMap{$0}.joined(separator: ", ") // To avoid getting too many commas
+        actorsLabel.text = actorsString
         locationLabel.text = film.locations
     }
 
@@ -73,7 +79,17 @@ class FilmTableViewCell: UITableViewCell {
         let l = UILabel()
         l.numberOfLines = 0
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
+        l.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.subheadline)
+        l.textAlignment = .left
+        l.textColor = .black
+        return l
+    }()
+
+    let actorsLabel: UILabel = {
+        let l = UILabel()
+        l.numberOfLines = 0
+        l.translatesAutoresizingMaskIntoConstraints = false
+        l.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.subheadline)
         l.textAlignment = .left
         l.textColor = .black
         return l
@@ -83,7 +99,7 @@ class FilmTableViewCell: UITableViewCell {
         let l = UILabel()
         l.numberOfLines = 0
         l.translatesAutoresizingMaskIntoConstraints = false
-        l.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.headline)
+        l.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
         l.textAlignment = .left
         l.textColor = .black
         return l

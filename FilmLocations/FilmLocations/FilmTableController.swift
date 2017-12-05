@@ -18,8 +18,10 @@ class FilmTableController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Film locations in San Francisco"
+        
         tableView.register(FilmTableViewCell.self, forCellReuseIdentifier: "Cell")
-        FilmManager().getFilms {(films) in
+        FilmManager.getFilms {(films) in
             DispatchQueue.main.async {
                 self.moviesArray = films
             }
@@ -35,6 +37,14 @@ class FilmTableController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! FilmTableViewCell
         cell.displayFilmInCell(film: moviesArray[indexPath.row]!)
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let filmLocationMapViewController = FilmLocationMapViewController()
+        filmLocationMapViewController.filmLocation = moviesArray[indexPath.row]?.locations
+        filmLocationMapViewController.filmTitle = moviesArray[indexPath.row]?.title
+        navigationController?.pushViewController(filmLocationMapViewController, animated: false)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
