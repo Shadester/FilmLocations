@@ -29,7 +29,7 @@ class FilmTableViewCell: UITableViewCell {
         addSubview(yearLabel)
         yearLabel.leftAnchor.constraint(equalTo: movieTitleLabel.rightAnchor, constant: 10).isActive = true
         yearLabel.topAnchor.constraint(equalTo: movieTitleLabel.topAnchor).isActive = true
-        yearLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -10).isActive = true
+        yearLabel.rightAnchor.constraint(lessThanOrEqualTo: rightAnchor, constant: -10).isActive = true
 
         addSubview(directorLabel)
         directorLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 10).isActive = true
