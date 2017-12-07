@@ -51,9 +51,9 @@ class FilmTableViewCell: UITableViewCell {
     func displayFilmInCell(film: Film) {
         movieTitleLabel.text = film.title
         yearLabel.text = "(\(film.release_year ?? ""))"
-        directorLabel.text = film.director
+        directorLabel.text = "Director: \(film.director ?? "")"
         let actorsString = [film.actor_1, film.actor_2, film.actor_3].flatMap{$0}.joined(separator: ", ") // To avoid getting too many commas
-        actorsLabel.text = actorsString
+        actorsLabel.text = "Actors: \(actorsString)"
         locationLabel.text = film.locations
     }
 
